@@ -37,6 +37,7 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/model-parent',
+  'app/forms-parent',
   /** @cli-barrel */
 ];
 
