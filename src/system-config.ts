@@ -40,6 +40,7 @@ const barrels: string[] = [
   'app/forms-parent',
   'app/forms-child1',
   'app/forms-child2',
+  'app/model-child2',
   /** @cli-barrel */
 ];
 
