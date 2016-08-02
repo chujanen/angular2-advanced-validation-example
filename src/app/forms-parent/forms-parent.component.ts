@@ -12,12 +12,12 @@ import { ModelObject } from '../shared/model-object';
 })
 export class FormsParentComponent implements OnInit {
 
-  private modelObject: ModelObject;
+  model: ModelObject = new ModelObject(3, 4);
 
   constructor() { }
 
   ngOnInit() {
-    this.modelObject = new ModelObject(1, 2);
+    //this.modelObject = new ModelObject(1, 2);
   }
 
 }

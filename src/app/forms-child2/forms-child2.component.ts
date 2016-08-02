@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup} from '@angular/forms';
+import { ModelObject } from '../shared/model-object';
 
 @Component({
   moduleId: module.id,
@@ -11,12 +12,19 @@ import {REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup} from '@angular/forms';
 export class FormsChild2Component implements OnInit {
 
   possibleNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  selectedNum: number;
+
+  @Input()
+  model: ModelObject;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onChange(newValue) {
+    this.selectedNum = newValue;
+    this.model.num2 = newValue;
+  }
 
-  // possibleNumbers
 }

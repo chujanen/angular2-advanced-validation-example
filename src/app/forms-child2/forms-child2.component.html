@@ -1,6 +1,14 @@
+
+<!-- this plunker has some example syntax of selects:
+  http://plnkr.co/edit/pv5j4b1NFyTGFkxHUSga?p=preview -->
+
 <div class="form-group">
   <label for="num2">Number 2</label>
-  <select class="form-control" required>
+  <!--<select class="form-control" required>
+    <option *ngFor="let p of possibleNumbers" [value]="p">{{p}}</option>
+  </select>-->
+
+  <select class="form-control" required [ngModel]="model.num2" (ngModelChange)="onChange($event)" name="num2">
     <option *ngFor="let p of possibleNumbers" [value]="p">{{p}}</option>
   </select>
 </div>
