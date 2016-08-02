@@ -1,6 +1,8 @@
-{{diagnostic}}
 
+<a href="https://auth0.com/blog/angular-2-series-part-5-forms-and-custom-validation/">https://auth0.com/blog/angular-2-series-part-5-forms-and-custom-validation/</a>
 <div class="form-group">
   <label for="num1">Number 1</label>
-  <input type="text" class="form-control" required [(ngModel)]="model.num1">
+  <input type="text" class="form-control" required [(ngModel)]="model.num1" ngControl="num1" #spy>
+  <br>ngControl: {{spy.className}}
+  <br>{{spy.value}}
 </div>
