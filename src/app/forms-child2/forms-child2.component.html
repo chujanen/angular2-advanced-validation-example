@@ -1,3 +1,6 @@
-<p>
-  forms-child2 works!
-</p>
+<div class="form-group">
+  <label for="num2">Number 2</label>
+  <select class="form-control" required>
+    <option *ngFor="let p of possibleNumbers" [value]="p">{{p}}</option>
+  </select>
+</div>
