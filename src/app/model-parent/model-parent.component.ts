@@ -24,6 +24,10 @@ export class ModelParentComponent implements OnInit {
       this.model.num1 = 23;
   }
 
+  FireMethod(){
+    console.log("Detected Change");
+  }
+
   submit() {
     if (this.model.num1 != this.model.num2) {
       console.log('Passed Validation and was Submitted');
