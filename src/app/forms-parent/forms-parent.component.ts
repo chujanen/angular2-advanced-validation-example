@@ -14,7 +14,7 @@ import { ModelObject } from '../shared/model-object';
 export class FormsParentComponent implements OnInit {
 
   model: ModelObject = new ModelObject(3, 4);
-  parentForm: FormGroup;
+  // parentForm: FormGroup;
 
   @ViewChild(FormsChild1Component)
   private child1: FormsChild1Component;
@@ -22,12 +22,14 @@ export class FormsParentComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.parentForm = this.formBuilder.group({
-      child1Form: this.child1.getControls(this.formBuilder)
-    });
+    // this.parentForm = this.formBuilder.group({
+    //   child1Form: this.child1.getControls(this.formBuilder)
+    // });
 
     this.model.num1 = 47;
 
+    // this.parentForm.valueChanges.subscribe(data => console.log('changed'));
     // console.log(this.child1);
   }
+
 }

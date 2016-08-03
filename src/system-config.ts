@@ -49,6 +49,7 @@ const barrels: string[] = [
   'app/model-child2',
   'app/momodel-child3',
   'app/model-child3',
+  'app/forms-simple',
   /** @cli-barrel */
 ];
 

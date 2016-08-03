@@ -4,16 +4,20 @@
   This approach uses a form with ngModel binding and validations.
 </p>
 
-<form [formGroup]="parentForm">
-  <fieldset formGroupName="child1Form">
+<!--<form [formGroup]="parentForm" #pForm="ngForm">-->
+
+<!--<fieldset formGroupName="child1Form">
     <app-forms-child1 [model]="model"></app-forms-child1>
-  </fieldset>
+  </fieldset>-->
+<form #pForm="ngForm">
+  <app-forms-child1 [model]="model"></app-forms-child1>
   <app-forms-child2 [model]="model"></app-forms-child2>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 
-  <br><br>
-
+  <br>
+  <br>formGroup: {{pForm.form.valid}}
+  <br>
   <div class="well">
     model: {{model | json}}
   </div>

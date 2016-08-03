@@ -1,0 +1,33 @@
+<h3>Forms Simple Approach</h3>
+
+<form [formGroup]="simpleForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="num1">Number 1</label>
+    <input type="number" class="form-control" [class.wwp-invalid]="num1Invalid" [(ngModel)]="model.num1" formControlName="num1" #spy>
+  </div>
+  <br>ngControl: {{spy.className}}
+
+  <div class="form-group">
+    <label for="num2">Number 2</label>
+    <!--<select class="form-control" required>
+    <option *ngFor="let p of possibleNumbers" [value]="p">{{p}}</option>
+  </select>-->
+
+    <select class="form-control" required [(ngModel)]="model.num2" formControlName="num2">
+    <option *ngFor="let p of possibleNumbers" [value]="p">{{p}}</option>
+  </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <br>
+  <br>
+  <div class="well">
+    model: {{model | json}}
+  </div>
+
+  <!--<div class="well">
+    from:
+    {{parentForm | json}}
+  </div>-->
+
+</form>
