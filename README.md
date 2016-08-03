@@ -29,3 +29,11 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## References
+
+http://blog.thoughtram.io/angular/2016/06/22/model-driven-forms-in-angular-2.html
+
+https://auth0.com/blog/angular-2-series-part-5-forms-and-custom-validation/
+
+https://www.youtube.com/watch?v=ihYc9y7dQA0
