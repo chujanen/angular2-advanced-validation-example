@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {REACTIVE_FORM_DIRECTIVES, FormControl, FormGroup} from '@angular/forms';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder } from '@angular/forms';
+
 import { ModelObject } from '../shared/model-object';
 
 @Component({
@@ -17,6 +18,12 @@ export class FormsChild1Component implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getControls(fb: FormBuilder) {
+    return fb.group({
+      num1: []
+    });
   }
 
 }

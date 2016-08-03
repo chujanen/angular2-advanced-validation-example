@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { REACTIVE_FORM_DIRECTIVES, FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { FormsChild1Component } from '../forms-child1';
 import { FormsChild2Component } from '../forms-child2';
 import { ModelObject } from '../shared/model-object';
@@ -8,16 +9,25 @@ import { ModelObject } from '../shared/model-object';
   selector: 'app-forms-parent',
   templateUrl: 'forms-parent.component.html',
   styleUrls: ['forms-parent.component.css'],
-  directives: [FormsChild1Component, FormsChild2Component]
+  directives: [REACTIVE_FORM_DIRECTIVES, FormsChild1Component, FormsChild2Component]
 })
 export class FormsParentComponent implements OnInit {
 
   model: ModelObject = new ModelObject(3, 4);
+  parentForm: FormGroup;
 
-  constructor() { }
+  @ViewChild(FormsChild1Component)
+  private child1: FormsChild1Component;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    //this.modelObject = new ModelObject(1, 2);
-  }
+    this.parentForm = this.formBuilder.group({
+      child1Form: this.child1.getControls(this.formBuilder)
+    });
 
+    this.model.num1 = 47;
+
+    // console.log(this.child1);
+  }
 }
