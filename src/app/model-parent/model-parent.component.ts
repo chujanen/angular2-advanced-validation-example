@@ -22,11 +22,13 @@ export class ModelParentComponent implements OnInit {
   errorList: ErrorObject[] = [];
   submitClicked: boolean;
 
+
+
   ngOnInit() {
   }
 
   KeyUpDetection(event) {
-    console.log("Detected Change");
+    console.log('Detected Change');
     if (this.submitClicked === true) {
       this.Validate();
     }
@@ -40,13 +42,13 @@ export class ModelParentComponent implements OnInit {
     this.errorList = [];
 
     // If both values match, they're invalid.
-    if (this.model.num1 != this.model.num2) {
+    if (this.model.num1 !== this.model.num2) {
       console.log('Passed Validation and was Submitted');
       this.errorList = [];
       this.submitClicked = false;
     } else {
       this.submitClicked = true;
-      let error = new ErrorObject()
+      let error = new ErrorObject();
       error.id = 1;
       error.message = 'Values Are Matching';
       this.errorList.push(error);
@@ -54,13 +56,19 @@ export class ModelParentComponent implements OnInit {
     }
 
     // Check to see values are added to both inputs because they're both required.
-    if(this.model.num1.toLocaleString() == '' || this.model.num2.toLocaleString() == ''){
+    if (this.model.num1.toLocaleString() === '' || this.model.num2.toLocaleString() === '') {
       this.submitClicked = true;
-      let error = new ErrorObject()
+      let error = new ErrorObject();
       error.id = 1;
       error.message = 'Values Are Missing';
       this.errorList.push(error);
       console.log('Failed Validation');
+
+      if (this.model.num1.toLocaleString() === '') {
+      }
+
+      if (this.model.num1.toLocaleString() === '') {
+      }
     }
   }
 
