@@ -20,22 +20,40 @@ export class ModelParentComponent implements OnInit {
 
   model: ModelObject = new ModelObject(3, 4);
   errorList: ErrorObject2[] = [];
+  submitClicked: boolean;
 
   ngOnInit() {
   }
 
-  KeyUpDetection(){
+  KeyUpDetection(event) {
     console.log("Detected Change");
+    console.log(this.model.num1);
+    if (this.submitClicked === true) {
+      this.Validate();
+    }
   }
 
-  Validate(){
+  Validate() {
+
+    this.errorList = [];
     if (this.model.num1 != this.model.num2) {
       console.log('Passed Validation and was Submitted');
       this.errorList = [];
+      this.submitClicked = false;
     } else {
+      this.submitClicked = true;
       let error = new ErrorObject2()
       error.id = 1;
       error.message = 'Values Are Matching';
+      this.errorList.push(error);
+      console.log('Failed Validation');
+    }
+
+    if(this.model.num1.toLocaleString() == '' || this.model.num2.toLocaleString() == ''){
+      this.submitClicked = true;
+      let error = new ErrorObject2()
+      error.id = 1;
+      error.message = 'Values Are Missing';
       this.errorList.push(error);
       console.log('Failed Validation');
     }
@@ -43,7 +61,7 @@ export class ModelParentComponent implements OnInit {
 
 
   submit() {
-   this.Validate();
+    this.Validate();
   }
 
 }
