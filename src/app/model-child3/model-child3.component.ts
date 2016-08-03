@@ -1,5 +1,4 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
-import { ModelObject } from '../shared/model-object';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 const noop = () => {
@@ -7,24 +6,24 @@ const noop = () => {
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => ModelChild2Component),
+  useExisting: forwardRef(() => ModelChild3Component),
   multi: true
 };
 
-
 @Component({
   moduleId: module.id,
-  selector: 'app-model-child2',
-  templateUrl: 'model-child2.component.html',
-  styleUrls: ['model-child2.component.css'],
+  selector: 'app-model-child3',
+  templateUrl: 'model-child3.component.html',
+  styleUrls: ['model-child3.component.css'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class ModelChild2Component implements OnInit {
+export class ModelChild3Component implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
   //The internal data model
   private innerValue: any = '';
