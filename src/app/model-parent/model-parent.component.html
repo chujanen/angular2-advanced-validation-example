@@ -1,10 +1,16 @@
 <h3>Model Parent Approach</h3>
 
+
+<!--This is where errors appear-->
+<div *ngIf='errorList.length > 0' style="background-color:lightCoral">
+  <div *ngFor="let error of errorList">{{error.message}}</div>
+</div>
+
 <p>
-  model-parent works!
+   This approach uses a custom-made method for validations while still using ngModel binding.
 </p>
 <app-model-child2 [(ngModel)]="model.num1" ></app-model-child2>
-<app-model-child3 (ngModelChange)="FireMethod()" [(ngModel)]="model.num2" ></app-model-child3>
+<app-model-child3 (ngModelChange)="KeyUpDetection()" [(ngModel)]="model.num2" ></app-model-child3>
 
 
 <button (click)='submit()' >Submit</button>
