@@ -36,7 +36,7 @@ export class ModelChild2Component implements OnInit {
 
   //get accessor
   get value(): any {
-    return this.innerValue;
+    return this.innerValue
   };
 
   //set accessor including call the onchange callback

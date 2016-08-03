@@ -11,14 +11,17 @@ import { ModelObject } from '../shared/model-object';
   styleUrls: ['model-parent.component.css'],
   directives: [ModelChild2Component, ModelChild3Component]
 })
+
+
 export class ModelParentComponent implements OnInit {
 
   constructor() { }
 
   model: ModelObject = new ModelObject(3, 4);
 
+  modelTest: number = 444;
   ngOnInit() {
-
+      this.model.num1 = 23;
   }
 
   submit() {
