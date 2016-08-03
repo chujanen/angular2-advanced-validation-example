@@ -49,6 +49,7 @@ export class ModelChild3Component implements OnInit {
   //Set touched on blur
   onBlur() {
     this.onTouchedCallback();
+    console.log('blur');
   }
 
   //From ControlValueAccessor interface
