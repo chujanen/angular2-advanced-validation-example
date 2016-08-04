@@ -1,4 +1,4 @@
 
 
 <label for="child3">Child 3 input</label>
-<input (blur)='onBlur()' name="child3" type="text" [(ngModel)]="value" />
+<input (blur)='onBlur()' [ngClass]="{Valid: _isValid, inValid: !_isValid}" name="child3" type="text" [(ngModel)]="value" />

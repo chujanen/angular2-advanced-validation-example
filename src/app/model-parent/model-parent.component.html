@@ -10,7 +10,7 @@
    This approach uses a custom-made method for validations while still using ngModel binding.
 </p>
 <app-model-child2 [isValid]='validity.num1IsValid' (ngModelChange)="model.num1 = $event; KeyUpDetection()" [(ngModel)]="model.num1" ></app-model-child2>
-<app-model-child3 [validity]='validity' (ngModelChange)="model.num2 = $event; KeyUpDetection()" [(ngModel)]="model.num2" ></app-model-child3>
+<app-model-child3 [isValid]='validity.num2IsValid'  (ngModelChange)="model.num2 = $event; KeyUpDetection()" [(ngModel)]="model.num2" ></app-model-child3>
 
 
 <button (click)='submit()' >Submit</button>

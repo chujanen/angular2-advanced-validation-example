@@ -1,0 +1,13 @@
+
+
+.inValid{
+    border-left-color: #ce4844;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
+
+.Valid{
+    border-left-color: #5cb85c;
+    border-left-width: 5px;
+    border-left-style: solid;
+}
