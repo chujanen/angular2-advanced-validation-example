@@ -1,4 +1,4 @@
 export class ErrorObject {
-   id: number; 
+   id: number;
    message: string;
 }

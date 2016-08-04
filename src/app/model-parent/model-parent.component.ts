@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 import { ModelChild3Component } from '../model-child3';
 import { ModelChild2Component} from '../model-child2';
 import { ModelObject } from '../shared/model-object';
 import { ErrorObject } from '../shared/error-object';
+import { ValidityObject } from '../shared/validity-object';
 
 @Component({
   moduleId: module.id,
@@ -16,10 +17,24 @@ import { ErrorObject } from '../shared/error-object';
 
 export class ModelParentComponent implements OnInit {
 
-  constructor() { }
+  constructor() { this.everythingValid }
 
+  // Model Contains All form data.
   model: ModelObject = new ModelObject(3, 4);
+
+  // Error list to display on top of page.
   errorList: ErrorObject[] = [];
+
+  // validity Object.
+  validity: ValidityObject = new ValidityObject();
+
+  // Everything is Valid at the start.
+  everythingValid() {
+    this.validity.num1IsValid = true;
+    this.validity.num2IsValid = true;
+  }
+
+
   submitClicked: boolean;
 
 
@@ -42,10 +57,12 @@ export class ModelParentComponent implements OnInit {
     this.errorList = [];
 
     // If both values match, they're invalid.
-    if (this.model.num1 !== this.model.num2) {
+    if (this.model.num1.toLocaleString() !== this.model.num2.toLocaleString()) {
       console.log('Passed Validation and was Submitted');
       this.errorList = [];
       this.submitClicked = false;
+      this.validity.num1IsValid = true;
+      this.validity.num2IsValid = true;
     } else {
       this.submitClicked = true;
       let error = new ErrorObject();
@@ -53,6 +70,8 @@ export class ModelParentComponent implements OnInit {
       error.message = 'Values Are Matching';
       this.errorList.push(error);
       console.log('Failed Validation');
+      this.validity.num1IsValid = false;
+      this.validity.num2IsValid = false;
     }
 
     // Check to see values are added to both inputs because they're both required.
@@ -65,9 +84,11 @@ export class ModelParentComponent implements OnInit {
       console.log('Failed Validation');
 
       if (this.model.num1.toLocaleString() === '') {
+        this.validity.num1IsValid = false;
       }
 
-      if (this.model.num1.toLocaleString() === '') {
+      if (this.model.num2.toLocaleString() === '') {
+        this.validity.num2IsValid = false;
       }
     }
   }
@@ -76,5 +97,4 @@ export class ModelParentComponent implements OnInit {
   submit() {
     this.Validate();
   }
-
 }

@@ -17,7 +17,7 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   styleUrls: ['model-child3.component.css'],
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
-export class ModelChild3Component implements OnInit {
+export class ModelChild3Component implements ControlValueAccessor, OnInit {
 
   constructor() { }
 

@@ -7,8 +7,7 @@ export class ModelObject {
 
 
 export class ModelObject2 {
-  
-  'num1' : Number;
-  'num2' : Number;
+  'num1': Number;
+  'num2': Number;
   'validations': string[];
 }

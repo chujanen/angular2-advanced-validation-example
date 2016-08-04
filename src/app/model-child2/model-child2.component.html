@@ -1,4 +1,5 @@
 
 
 <label for="child2">Child 2 input</label>
-<input name="child2" type="text" [(ngModel)]="value" />
+<input [ngClass]="{Valid: _isValid, inValid: _isValid}" name="child2" type="text" [(ngModel)]="value" />
+
