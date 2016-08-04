@@ -31,7 +31,6 @@ export class ModelChild3Component implements ControlValueAccessor, OnInit, OnCha
   _isValid = true;
 
   ngOnChanges(changes) {
-    console.log(this.isValid);
     if (this.isValid !== undefined) {
       this._isValid = this.isValid;
     }
